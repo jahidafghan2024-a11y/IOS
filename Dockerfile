@@ -1,13 +1,14 @@
 FROM node:20-bullseye-slim
 
 RUN apt-get update && apt-get install -y \
-    git make g++ \
+    git make g++ cmake \
     libssl-dev libzip-dev \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --depth 1 https://github.com/zhlynn/zsign.git /tmp/zsign \
+RUN git clone --recurse-submodules https://github.com/zhlynn/zsign.git /tmp/zsign \
     && cd /tmp/zsign \
+    && cmake -DCMAKE_BUILD_TYPE=Release . \
     && make -j$(nproc) \
     && cp zsign /usr/local/bin/zsign \
     && chmod +x /usr/local/bin/zsign \
