@@ -1,28 +1,25 @@
 FROM node:20-bullseye-slim
 
 RUN apt-get update && apt-get install -y \
-    git cmake build-essential \
+    git make g++ \
     libssl-dev libzip-dev \
-    ca-certificates curl \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://github.com/zhlynn/zsign.git /tmp/zsign \
     && cd /tmp/zsign \
-    && cmake -DCMAKE_BUILD_TYPE=Release . \
     && make -j$(nproc) \
     && cp zsign /usr/local/bin/zsign \
     && chmod +x /usr/local/bin/zsign \
-    && rm -rf /tmp/zsign \
-    && zsign 2>&1 | head -1 || true
+    && rm -rf /tmp/zsign
 
 RUN npm install -g pnpm
 
 WORKDIR /app
 
-COPY package.json ./
-COPY pnpm-lock.yaml* ./
+COPY package.json pnpm-lock.yaml* ./
 
-RUN pnpm install --frozen-lockfile || pnpm install
+RUN mkdir -p patches && pnpm install --no-frozen-lockfile
 
 COPY . .
 
