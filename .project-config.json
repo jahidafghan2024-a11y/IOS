@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663667256916/9LYWon4kc5WqvNPRPPjnev",
+    "access_key_id": "ASIAZV3A2ECZLVBRXITR",
+    "secret_access_key": "YpEXq33OnzZFFiLOEz4Jr0WK8AHWS9+MlqwhsM6N",
+    "session_token": "IQoJb3JpZ2luX2VjED8aCXVzLWVhc3QtMSJHMEUCICt5RCns3DYMlMCiB23Co5g4qlA4pfeY1Psf95pmCyg0AiEAk1ONeTr3J6NYXO7DXLxTOqz9tnYpkNEflQsnz9fVtl4q9gMICBAEGgw2NjUzODYwOTg4NjYiDD0SLLViWlP4jrmGCCrTA5b0DFEGW5WUFMW8wplJLH7kzUP+fNn0cZR8sIgP0QiMGta/hqqUuQ5iGD3qqHJg49NS7aA90i4TRCgyDTkTcs1Bmb6RFfYv4Kv+kr97VgEq+i89a9xKKhZAyu/g18MyJ5Hr9h0W65eLK9Hs75JtRecXQLzd3ZrQxpOqPwVieo+HsbB+DGW5dF0yWS84rTahFRzwTiPOjZ8RvBtq6oIvLGe+/RlvzJm0QvMM8WpmHmD0OhU3q/YE3/GfLSby6TfJ+qDX+h0e2RkFwpQ7wD7fnKPsKgSPrG0hjX5wnZIkSRVqF2RCtmr5Fiv7LwxtvoI8FK2bZ4LOJSVSpxl0doGFVnQ4YLBX8P1rvx+4es2y87dQS4Hf6fYWiEYqNdTwAfwrWYmR4W4GZeHO4cV7j4SbAoXtvDwt50HhnJ+vVFceAlPA6sgNYE1Exx31itsF1GPkhsk2uEVFoATr4Xcn8B0+zdfeTfMRuJoZNrMa/WTUdH2GK8P99uQ0x5eo7mlc0AykNW95wA72FFH8TABWhCbkVubNdoAKC9K8vT5psKMlTs2p2ZyQOmh/csqf0RQo9vX5AFONZ0cg+WSNqJe6w6rxdl62hL5jXohA5p6ifnqb421gjQXQMLKqvNAGOp0BPY0R3mFhNxJbTOsKYeYOZSrJEQCCe5Oa33XBriGqIvfm0dFyl35OQ6azyUvFSSuXnx4h9o2znD+Y3FCavkoXl8o3K1lCnMlbqb7kvy/8e1cMRZOvvt9ehq83/Lcto611R3FYXjKZD6rn/NaP6TeXUpb5EB/Tm7UYOPRHlnkiXKmE0/bax/ZMGtBe6CBN035K+8RlZY1JXp3yPTWfXg==",
+    "expiration": "2026-05-22T02:22:42.000Z"
+  },
+  "name": "ios-underground-tma",
+  "path": "/home/ubuntu/ios-underground-tma",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "ARWiwasgvmyP8acTVk9U2R",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "94dXaMohqv3zt3HjagQRUV",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "shadow Less",
+    "OWNER_OPEN_ID": "MPpweTtDmQb83MfYzYhBz5",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "dba9be0c-4295-4975-8c06-d7275a57a4d5",
+    "VITE_APP_ID": "9LYWon4kc5WqvNPRPPjnev",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "iOS Underground TMA",
+    "VITE_FRONTEND_FORGE_API_KEY": "fZbbxSffe2MjQRpiYFGDei",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
