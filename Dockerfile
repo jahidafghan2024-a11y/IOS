@@ -1,26 +1,31 @@
-FROM node:20-slim
+FROM node:20-bullseye-slim
 
-# Install zsign build dependencies + runtime libs
 RUN apt-get update && apt-get install -y \
-    build-essential cmake libssl-dev libzip-dev git ca-certificates \
-    && git clone --depth 1 https://github.com/zhlynn/zsign.git /tmp/zsign \
-    && cd /tmp/zsign && cmake . && make \
-    && cp zsign /usr/local/bin/zsign \
-    && rm -rf /tmp/zsign \
-    && apt-get purge -y build-essential cmake git \
-    && apt-get autoremove -y \
+    git cmake build-essential \
+    libssl-dev libzip-dev \
+    ca-certificates curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install pnpm
-RUN npm install -g pnpm@10.4.1
+RUN git clone --depth 1 https://github.com/zhlynn/zsign.git /tmp/zsign \
+    && cd /tmp/zsign \
+    && cmake -DCMAKE_BUILD_TYPE=Release . \
+    && make -j$(nproc) \
+    && cp zsign /usr/local/bin/zsign \
+    && chmod +x /usr/local/bin/zsign \
+    && rm -rf /tmp/zsign \
+    && zsign 2>&1 | head -1 || true
+
+RUN npm install -g pnpm
 
 WORKDIR /app
-COPY package.json pnpm-lock.yaml* ./
-COPY patches/ ./patches/
 
-RUN pnpm install --frozen-lockfile 2>/dev/null || pnpm install
+COPY package.json ./
+COPY pnpm-lock.yaml* ./
+
+RUN pnpm install --frozen-lockfile || pnpm install
 
 COPY . .
+
 RUN pnpm run build
 
 EXPOSE 3000
